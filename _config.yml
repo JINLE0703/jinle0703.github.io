@@ -5,11 +5,11 @@
 # Site
 title: 米奇妙妙屋
 subtitle: ''
-description: ''
+description: '一只小菜鸡'
 keywords:
 author: Jinle
 language: zh-CN
-timezone: 'Asia/Shanghai'
+timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
