@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 米奇妙妙屋</title>
+  <title>聊聊JavaScript类型 | 米奇妙妙屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只小菜鸡">
-<meta property="og:type" content="website">
-<meta property="og:title" content="米奇妙妙屋">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；  Undefined、NullUndefined 类型表示未定义，它的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊JavaScript类型">
+<meta property="og:url" content="http://yoursite.com/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="米奇妙妙屋">
-<meta property="og:description" content="一只小菜鸡">
+<meta property="og:description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；  Undefined、NullUndefined 类型表示未定义，它的">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-19T09:04:21.000Z">
+<meta property="article:modified_time" content="2020-08-19T09:51:02.281Z">
 <meta property="article:author" content="Jinle">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="米奇妙妙屋" type="application/atom+xml">
@@ -142,36 +145,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-聊聊javascript类型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-08-19T09:04:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/">聊聊JavaScript类型</a>
+    <h1 class="article-title" itemprop="name">
+      聊聊JavaScript类型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-08-19T09:04:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：</p>
+<ol>
+<li>Undefined；</li>
+<li>Null；</li>
+<li>Boolean；</li>
+<li>String；</li>
+<li>Number；</li>
+<li>Symbol（ES6）；</li>
+<li>Object；</li>
+</ol>
+<h3 id="Undefined、Null"><a href="#Undefined、Null" class="headerlink" title="Undefined、Null"></a>Undefined、Null</h3><p>Undefined 类型表示未定义，它的类型只有一个值，就是 undefined。任何变量在赋值前是 Undefined 类型、值为 undefined，一般我们可以用全局变量 undefined（就是名为 undefined 的这个变量）来表达这个值，或者 void 运算来把任一一个表达式变成 undefined 值。</p>
+<p>但是呢，因为 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是 JavaScript 语言公认的设计失误之一，所以为了避免无意中被篡改，建议使用 void 0 来获取 undefined 值。</p>
+<p>Undefined 跟 null 有一定的表意差别，null表示的是：“定义了但是为空”。所以，在实际编程时，一般不会把变量赋值为  undefined，这样可以保证所有值为 undefined 的变量，都是从未赋值的自然状态。</p>
+<p>Null 类型也只有一个值，就是 null，它的语义表示空值，与 undefined 不同，null 是 JavaScript 关键字，所以在任何代码中，都可以放心用 null 关键字来获取 null 值。</p>
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>Boolean 类型有两个值， true 和 false，它用于表示逻辑意义上的真和假，同样有关键字 true 和 false 来表示两个值。</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>String 用于表示文本数据。String 有最大长度是 2^53 - 1，这在一般开发中都是够用的。</p>
+<p>因为String 的意义并非“字符串”，而是字符串的 UTF16 编码，字符串的操作 charAt、charCodeAt、length 等方法针对的都是 UTF16 编码。所以，字符串的最大长度，实际上是受字符串的编码长度影响的。</p>
+<blockquote>
+<p>现行的字符集国际标准，字符是以 Unicode 的方式表示的，每一个 Unicode 的码点表示一个字符，理论上，Unicode 的范围是无限的。UTF是Unicode的编码方式，规定了码点在计算机中的表示方法，常见的有 UTF16 和 UTF8。 Unicode 的码点通常用 U+??? 来表示，其中 ??? 是十六进制的码点值。 0-65536（U+0000 - U+FFFF）的码点被称为基本字符区域（BMP）。</p>
+</blockquote>
+<p>JavaScript 中的字符串是永远无法变更的，一旦字符串构造出来，无法用任何方式改变字符串的内容，所以字符串具有值类型的特征。</p>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>Number 类型表示我们通常意义上的“数字”。这个数字大致对应数学中的有理数，当然，在计算机中有一定的精度限制。</p>
+<p>JavaScript 中的 Number 类型有 18437736874454810627 （即 2^64-2^53+3 ) 个值。</p>
+<p>JavaScript 中的 Number 类型基本符合 IEEE 754-2008 规定的双精度浮点数规则，但是 JavaScript 为了表达几个额外的语言场景（比如不让除以0出错，而引入了无穷大的概念），规定了几个例外情况：</p>
+<ul>
+<li>NaN，非数字，占用了 9007199254740990，这原本是符合IEEE规则的数字；</li>
+<li>Infinity，无穷大；</li>
+<li>-Infinity，负无穷大。</li>
+</ul>
+<p>另外，值得注意的是，JavaScript中有 +0 和 -0，在加法类运算中它们没有区别，但是除法的场合则需要特别留意区分，“忘记检测除以 -0，而得到负无穷大”的情况经常会导致错误，而区分 +0 和 -0 的方式，正是检测 1/x 是 Infinity 还是 -Infinity。</p>
+<p>根据双精度浮点数的定义，Number 类型中有效的整数范围是 -0x1fffffffffffff 至 0x1fffffffffffff，所以 Number 无法精确表示此范围外的整数。</p>
+<p>同样根据浮点数的定义，非整数的Number类型无法用 == （ ===也不行） 来比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="number">0.1</span> + <span class="number">0.2</span> == <span class="number">0.3</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>正确的比较方法是使用JavaScript提供的最小精度值，检查等式左右两边差的绝对值是否小于最小精度，才是正确的比较浮点数的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Math</span>.abs(<span class="number">0.1</span> + <span class="number">0.2</span> - <span class="number">0.3</span>) &lt;= <span class="built_in">Number</span>.EPSILON); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h3><p>Symbol 是 ES6 中引入的新类型，它是一切非字符串的对象 key 的集合，在ES6 规范中，整个对象系统被用 Symbol 重塑。</p>
+<p>Symbol 可以具有字符串类型的描述，但是即使描述相同，Symbol也不相等。</p>
+<p>我们创建 Symbol 的方式是使用全局的 Symbol 函数。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mySymbol = <span class="built_in">Symbol</span>(<span class="string">&quot;my symbol&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Object 是 JavaScript 中最复杂的类型，也是 JavaScript 的核心机制之一。Object表示对象的意思，它是一切有形和无形物体的总称。</p>
+<p>在 JavaScript 中，对象的定义是“属性的集合”。属性分为数据属性和访问器属性，二者都是 key - value 结构，key 可以是字符串或者  Symbol 类型。</p>
+<p>提到对象，我们必须要提到一个概念：类。JavaScript 中的“类”仅仅是运行时对象的一个私有属性，而 JavaScript 中是无法自定义类型的。JavaScript 中的几个基本类型，都在对象类型中有一个“亲戚”。它们是：</p>
+<ul>
+<li>Number；</li>
+<li>String；</li>
+<li>Boolean；</li>
+<li>Symbol；</li>
+</ul>
+<p><strong>所以，我们必须认识到 3 与 new Number(3) 是完全不同的值，它们一个是 Number 类型， 一个是对象类型。</strong></p>
+<p>Number、String 和 Boolean，三个构造器是两用的，当跟 new 搭配时，它们产生对象，当直接调用时，它们表示强制类型转换。</p>
+<p>Symbol 函数比较特殊，直接用 new 调用它会抛出错误，但它仍然是 Symbol 对象的构造器。</p>
+<h2 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h2><p>JavaScript 中类型判断一共有四种方法</p>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p> typeof 是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括 number，string，boolean，undefined，object，function，symbol等。</p>
+<p>&lt;% asset_img typeof对照表.png %&gt;</p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof 用来判断A是否为B的实例，表达式为：A instanceof B，如果 A 是 B 的实例，则返回 true，否则返回 false。instanceof 检测的是原型，内部机制是通过判断对象的原型链中是否有类型的原型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span>;  <span class="comment">//true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></span><br><span class="line"><span class="string">&quot;123&quot;</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>; <span class="comment">//false</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="number">123</span>) <span class="keyword">instanceof</span> <span class="built_in">String</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>当一个函数F被定义时，JS 引擎会为 F 添加 prototype 原型，然后在 prototype 上添加一个 constructor 属性，并让其指向F的引用，F 利用原型对象的 constructor 属性引用了自身，当F作为构造函数创建对象时，原型上的 constructor 属性被遗传到了新创建的对象上，从原型链角度讲，构造函数 F 就是新对象的类型。这样做的意义是，让对象诞生以后，就具有可追溯的数据类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>.constructor === <span class="built_in">String</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>).constructor === <span class="built_in">Number</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p>toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]]。这是一个内部属性，其格式为 [object Xxx] ，其中 Xxx 就是对象的类型。 对于 Object 对象，直接调用 toString() 就能返回 [object Object] ，而对于其他对象，则需要通过 call、apply 来调用才能返回正确的类型信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(&#39;&#39;); &#x2F;&#x2F; [object String]</span><br><span class="line">Object.prototype.toString.call(1); &#x2F;&#x2F; [object Number]</span><br></pre></td></tr></table></figure>
+
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>因为JS是弱类型语言，所以类型转换发生非常频繁，大部分我们熟悉的运算都会先进行类型转换。</p>
+<p>其中最为臭名昭著的是JS中的“ == ”运算，因为试图实现跨类型的比较，它的规则复杂到几乎没人可以记住，它属于设计失误，并非语言中有价值的部分，很多实践中推荐禁止使用 == ，而要求程序员进行显式地类型转换后，用 === 比较。</p>
+<p>&lt;% asset_img 类型转换规则表.jpg %&gt;</p>
+<h3 id="String-To-Number"><a href="#String-To-Number" class="headerlink" title="String To Number"></a>String To Number</h3><p>需要注意的是，在不传入第二个参数的情况下，parseInt 只支持16进制前缀“0x”，而且会忽略非数字字符，也不支持科学计数法。而parseFloat则直接把原字符串作为十进制来解析，它不会引入任何的其他进制。</p>
+<p><strong>多数情况下，Number 是比 parseInt 和 parseFloat 更好的选择。</strong></p>
+<h3 id="Number-To-String"><a href="#Number-To-String" class="headerlink" title="Number To String"></a>Number To String</h3><p>在较小的范围内，数字到字符串的转换是完全符合你直觉的十进制表示。当Number绝对值较大或者较小时，字符串表示则是使用科学计数法表示的。这个算法细节繁多，我们从感性的角度认识，它其实就是保证了产生的字符串不会过长。</p>
+<h3 id="装箱转换"><a href="#装箱转换" class="headerlink" title="装箱转换"></a>装箱转换</h3><p>每一种基本类型 Number、String、Boolean、Symbol 在对象中都有对应的类，所谓装箱转换，正是把基本类型转换为对应的对象，它是类型转换中一种相当重要的种类。</p>
+<p>前文提到，全局的 Symbol 函数无法使用 new 来调用，但我们仍可以利用装箱机制来得到一个 Symbol 对象，我们可以利用一个函数的call方法来强迫产生装箱。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> symbolObject = <span class="built_in">Object</span>(<span class="built_in">Symbol</span>(<span class="string">&quot;a&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> symbolObject); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(symbolObject <span class="keyword">instanceof</span> <span class="built_in">Symbol</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(symbolObject.constructor == <span class="built_in">Symbol</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>装箱机制会频繁产生临时对象，在一些对性能要求较高的场景下，我们应该尽量避免对基本类型做装箱转换。</strong></p>
+<p>每一类装箱对象皆有私有的 Class 属性，这些属性可以用 <strong>Object.prototype.toString</strong> 获取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> symbolObject = <span class="built_in">Object</span>(<span class="built_in">Symbol</span>(<span class="string">&quot;a&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(symbolObject)); <span class="comment">// [object Symbol]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>在 JavaScript 中，没有任何方法可以更改私有的 Class 属性，因此 Object.prototype.toString 是可以准确识别对象对应的基本类型的方法，它比 instanceof 更加准确。</strong></p>
+<h3 id="拆箱转换"><a href="#拆箱转换" class="headerlink" title="拆箱转换"></a>拆箱转换</h3><p>在 JavaScript 标准中，规定了 <strong>ToPrimitive</strong> 函数，它是对象类型到基本类型的转换（即，拆箱转换）。</p>
+<hr>
+<p>除了这七种语言类型，还有一些语言的实现者更关心的规范类型。</p>
+<ul>
+<li>List 和 Record： 用于描述函数传参过程。</li>
+<li>Set：主要用于解释字符集等。</li>
+<li>Completion Record：用于描述异常、跳出等语句执行过程。</li>
+<li>Reference：用于描述对象属性访问、delete等。</li>
+<li>Property Descriptor：用于描述对象的属性。</li>
+<li>Lexical Environment 和 Environment Record：用于描述变量和作用域。</li>
+<li>Data Block：用于描述二进制数据。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,122 +277,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-08-18T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈HTML语义化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/">浅谈HTML语义化</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-08-18T15:01:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">前端知识体系</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/18/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-08-18T12:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/18/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">复杂度分析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -321,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
