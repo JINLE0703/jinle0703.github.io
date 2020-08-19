@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>聊聊JavaScript类型 | 米奇妙妙屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；  Undefined、NullUndefined 类型表示未定义，它的">
+  <meta name="description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="聊聊JavaScript类型">
 <meta property="og:url" content="http://yoursite.com/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="米奇妙妙屋">
-<meta property="og:description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；  Undefined、NullUndefined 类型表示未定义，它的">
+<meta property="og:description" content="类型JavaScript语言的每一个值都属于某一种数据类型。JavaScript语言规定了7种语言类型。语言类型广泛用于变量、函数参数、表达式、函数返回值等场合。根据最新的语言标准，这7种语言类型是：  Undefined； Null； Boolean； String； Number； Symbol（ES6）； Object；">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-19T09:04:21.000Z">
-<meta property="article:modified_time" content="2020-08-19T09:51:02.281Z">
+<meta property="article:modified_time" content="2020-08-19T10:14:46.384Z">
 <meta property="article:author" content="Jinle">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -175,6 +175,8 @@
 <li>Symbol（ES6）；</li>
 <li>Object；</li>
 </ol>
+<a id="more"></a>
+
 <h3 id="Undefined、Null"><a href="#Undefined、Null" class="headerlink" title="Undefined、Null"></a>Undefined、Null</h3><p>Undefined 类型表示未定义，它的类型只有一个值，就是 undefined。任何变量在赋值前是 Undefined 类型、值为 undefined，一般我们可以用全局变量 undefined（就是名为 undefined 的这个变量）来表达这个值，或者 void 运算来把任一一个表达式变成 undefined 值。</p>
 <p>但是呢，因为 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是 JavaScript 语言公认的设计失误之一，所以为了避免无意中被篡改，建议使用 void 0 来获取 undefined 值。</p>
 <p>Undefined 跟 null 有一定的表意差别，null表示的是：“定义了但是为空”。所以，在实际编程时，一般不会把变量赋值为  undefined，这样可以保证所有值为 undefined 的变量，都是从未赋值的自然状态。</p>

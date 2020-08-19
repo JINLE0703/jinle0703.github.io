@@ -174,90 +174,9 @@
 <li>Symbol（ES6）；</li>
 <li>Object；</li>
 </ol>
-<h3 id="Undefined、Null"><a href="#Undefined、Null" class="headerlink" title="Undefined、Null"></a>Undefined、Null</h3><p>Undefined 类型表示未定义，它的类型只有一个值，就是 undefined。任何变量在赋值前是 Undefined 类型、值为 undefined，一般我们可以用全局变量 undefined（就是名为 undefined 的这个变量）来表达这个值，或者 void 运算来把任一一个表达式变成 undefined 值。</p>
-<p>但是呢，因为 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是 JavaScript 语言公认的设计失误之一，所以为了避免无意中被篡改，建议使用 void 0 来获取 undefined 值。</p>
-<p>Undefined 跟 null 有一定的表意差别，null表示的是：“定义了但是为空”。所以，在实际编程时，一般不会把变量赋值为  undefined，这样可以保证所有值为 undefined 的变量，都是从未赋值的自然状态。</p>
-<p>Null 类型也只有一个值，就是 null，它的语义表示空值，与 undefined 不同，null 是 JavaScript 关键字，所以在任何代码中，都可以放心用 null 关键字来获取 null 值。</p>
-<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>Boolean 类型有两个值， true 和 false，它用于表示逻辑意义上的真和假，同样有关键字 true 和 false 来表示两个值。</p>
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>String 用于表示文本数据。String 有最大长度是 2^53 - 1，这在一般开发中都是够用的。</p>
-<p>因为String 的意义并非“字符串”，而是字符串的 UTF16 编码，字符串的操作 charAt、charCodeAt、length 等方法针对的都是 UTF16 编码。所以，字符串的最大长度，实际上是受字符串的编码长度影响的。</p>
-<blockquote>
-<p>现行的字符集国际标准，字符是以 Unicode 的方式表示的，每一个 Unicode 的码点表示一个字符，理论上，Unicode 的范围是无限的。UTF是Unicode的编码方式，规定了码点在计算机中的表示方法，常见的有 UTF16 和 UTF8。 Unicode 的码点通常用 U+??? 来表示，其中 ??? 是十六进制的码点值。 0-65536（U+0000 - U+FFFF）的码点被称为基本字符区域（BMP）。</p>
-</blockquote>
-<p>JavaScript 中的字符串是永远无法变更的，一旦字符串构造出来，无法用任何方式改变字符串的内容，所以字符串具有值类型的特征。</p>
-<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>Number 类型表示我们通常意义上的“数字”。这个数字大致对应数学中的有理数，当然，在计算机中有一定的精度限制。</p>
-<p>JavaScript 中的 Number 类型有 18437736874454810627 （即 2^64-2^53+3 ) 个值。</p>
-<p>JavaScript 中的 Number 类型基本符合 IEEE 754-2008 规定的双精度浮点数规则，但是 JavaScript 为了表达几个额外的语言场景（比如不让除以0出错，而引入了无穷大的概念），规定了几个例外情况：</p>
-<ul>
-<li>NaN，非数字，占用了 9007199254740990，这原本是符合IEEE规则的数字；</li>
-<li>Infinity，无穷大；</li>
-<li>-Infinity，负无穷大。</li>
-</ul>
-<p>另外，值得注意的是，JavaScript中有 +0 和 -0，在加法类运算中它们没有区别，但是除法的场合则需要特别留意区分，“忘记检测除以 -0，而得到负无穷大”的情况经常会导致错误，而区分 +0 和 -0 的方式，正是检测 1/x 是 Infinity 还是 -Infinity。</p>
-<p>根据双精度浮点数的定义，Number 类型中有效的整数范围是 -0x1fffffffffffff 至 0x1fffffffffffff，所以 Number 无法精确表示此范围外的整数。</p>
-<p>同样根据浮点数的定义，非整数的Number类型无法用 == （ ===也不行） 来比较</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="number">0.1</span> + <span class="number">0.2</span> == <span class="number">0.3</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>正确的比较方法是使用JavaScript提供的最小精度值，检查等式左右两边差的绝对值是否小于最小精度，才是正确的比较浮点数的方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Math</span>.abs(<span class="number">0.1</span> + <span class="number">0.2</span> - <span class="number">0.3</span>) &lt;= <span class="built_in">Number</span>.EPSILON); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h3><p>Symbol 是 ES6 中引入的新类型，它是一切非字符串的对象 key 的集合，在ES6 规范中，整个对象系统被用 Symbol 重塑。</p>
-<p>Symbol 可以具有字符串类型的描述，但是即使描述相同，Symbol也不相等。</p>
-<p>我们创建 Symbol 的方式是使用全局的 Symbol 函数。例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mySymbol = <span class="built_in">Symbol</span>(<span class="string">&quot;my symbol&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Object 是 JavaScript 中最复杂的类型，也是 JavaScript 的核心机制之一。Object表示对象的意思，它是一切有形和无形物体的总称。</p>
-<p>在 JavaScript 中，对象的定义是“属性的集合”。属性分为数据属性和访问器属性，二者都是 key - value 结构，key 可以是字符串或者  Symbol 类型。</p>
-<p>提到对象，我们必须要提到一个概念：类。JavaScript 中的“类”仅仅是运行时对象的一个私有属性，而 JavaScript 中是无法自定义类型的。JavaScript 中的几个基本类型，都在对象类型中有一个“亲戚”。它们是：</p>
-<ul>
-<li>Number；</li>
-<li>String；</li>
-<li>Boolean；</li>
-<li>Symbol；</li>
-</ul>
-<p><strong>所以，我们必须认识到 3 与 new Number(3) 是完全不同的值，它们一个是 Number 类型， 一个是对象类型。</strong></p>
-<p>Number、String 和 Boolean，三个构造器是两用的，当跟 new 搭配时，它们产生对象，当直接调用时，它们表示强制类型转换。</p>
-<p>Symbol 函数比较特殊，直接用 new 调用它会抛出错误，但它仍然是 Symbol 对象的构造器。</p>
-<h2 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h2><p>JavaScript 中类型判断一共有四种方法</p>
-<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p> typeof 是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示，包括 number，string，boolean，undefined，object，function，symbol等。</p>
-<p>&lt;% asset_img typeof对照表.png %&gt;</p>
-<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof 用来判断A是否为B的实例，表达式为：A instanceof B，如果 A 是 B 的实例，则返回 true，否则返回 false。instanceof 检测的是原型，内部机制是通过判断对象的原型链中是否有类型的原型。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span>;  <span class="comment">//true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">//true</span></span><br><span class="line"><span class="string">&quot;123&quot;</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>; <span class="comment">//false</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="number">123</span>) <span class="keyword">instanceof</span> <span class="built_in">String</span>; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>当一个函数F被定义时，JS 引擎会为 F 添加 prototype 原型，然后在 prototype 上添加一个 constructor 属性，并让其指向F的引用，F 利用原型对象的 constructor 属性引用了自身，当F作为构造函数创建对象时，原型上的 constructor 属性被遗传到了新创建的对象上，从原型链角度讲，构造函数 F 就是新对象的类型。这样做的意义是，让对象诞生以后，就具有可追溯的数据类型。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>.constructor === <span class="built_in">String</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>).constructor === <span class="built_in">Number</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p>toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]]。这是一个内部属性，其格式为 [object Xxx] ，其中 Xxx 就是对象的类型。 对于 Object 对象，直接调用 toString() 就能返回 [object Object] ，而对于其他对象，则需要通过 call、apply 来调用才能返回正确的类型信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(&#39;&#39;); &#x2F;&#x2F; [object String]</span><br><span class="line">Object.prototype.toString.call(1); &#x2F;&#x2F; [object Number]</span><br></pre></td></tr></table></figure>
-
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>因为JS是弱类型语言，所以类型转换发生非常频繁，大部分我们熟悉的运算都会先进行类型转换。</p>
-<p>其中最为臭名昭著的是JS中的“ == ”运算，因为试图实现跨类型的比较，它的规则复杂到几乎没人可以记住，它属于设计失误，并非语言中有价值的部分，很多实践中推荐禁止使用 == ，而要求程序员进行显式地类型转换后，用 === 比较。</p>
-<p>&lt;% asset_img 类型转换规则表.jpg %&gt;</p>
-<h3 id="String-To-Number"><a href="#String-To-Number" class="headerlink" title="String To Number"></a>String To Number</h3><p>需要注意的是，在不传入第二个参数的情况下，parseInt 只支持16进制前缀“0x”，而且会忽略非数字字符，也不支持科学计数法。而parseFloat则直接把原字符串作为十进制来解析，它不会引入任何的其他进制。</p>
-<p><strong>多数情况下，Number 是比 parseInt 和 parseFloat 更好的选择。</strong></p>
-<h3 id="Number-To-String"><a href="#Number-To-String" class="headerlink" title="Number To String"></a>Number To String</h3><p>在较小的范围内，数字到字符串的转换是完全符合你直觉的十进制表示。当Number绝对值较大或者较小时，字符串表示则是使用科学计数法表示的。这个算法细节繁多，我们从感性的角度认识，它其实就是保证了产生的字符串不会过长。</p>
-<h3 id="装箱转换"><a href="#装箱转换" class="headerlink" title="装箱转换"></a>装箱转换</h3><p>每一种基本类型 Number、String、Boolean、Symbol 在对象中都有对应的类，所谓装箱转换，正是把基本类型转换为对应的对象，它是类型转换中一种相当重要的种类。</p>
-<p>前文提到，全局的 Symbol 函数无法使用 new 来调用，但我们仍可以利用装箱机制来得到一个 Symbol 对象，我们可以利用一个函数的call方法来强迫产生装箱。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> symbolObject = <span class="built_in">Object</span>(<span class="built_in">Symbol</span>(<span class="string">&quot;a&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> symbolObject); <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(symbolObject <span class="keyword">instanceof</span> <span class="built_in">Symbol</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(symbolObject.constructor == <span class="built_in">Symbol</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>装箱机制会频繁产生临时对象，在一些对性能要求较高的场景下，我们应该尽量避免对基本类型做装箱转换。</strong></p>
-<p>每一类装箱对象皆有私有的 Class 属性，这些属性可以用 <strong>Object.prototype.toString</strong> 获取</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> symbolObject = <span class="built_in">Object</span>(<span class="built_in">Symbol</span>(<span class="string">&quot;a&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(symbolObject)); <span class="comment">// [object Symbol]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>在 JavaScript 中，没有任何方法可以更改私有的 Class 属性，因此 Object.prototype.toString 是可以准确识别对象对应的基本类型的方法，它比 instanceof 更加准确。</strong></p>
-<h3 id="拆箱转换"><a href="#拆箱转换" class="headerlink" title="拆箱转换"></a>拆箱转换</h3><p>在 JavaScript 标准中，规定了 <strong>ToPrimitive</strong> 函数，它是对象类型到基本类型的转换（即，拆箱转换）。</p>
-<hr>
-<p>除了这七种语言类型，还有一些语言的实现者更关心的规范类型。</p>
-<ul>
-<li>List 和 Record： 用于描述函数传参过程。</li>
-<li>Set：主要用于解释字符集等。</li>
-<li>Completion Record：用于描述异常、跳出等语句执行过程。</li>
-<li>Reference：用于描述对象属性访问、delete等。</li>
-<li>Property Descriptor：用于描述对象的属性。</li>
-<li>Lexical Environment 和 Environment Record：用于描述变量和作用域。</li>
-<li>Data Block：用于描述二进制数据。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/#more">more >></a>
+        
       
 
       
@@ -330,51 +249,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="什么是语义化，它有什么好处"><a href="#什么是语义化，它有什么好处" class="headerlink" title="什么是语义化，它有什么好处"></a>什么是语义化，它有什么好处</h1><p>语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达，如 section、nav、p 等语义类标签</p>
-<h3 id="正确地使用语义标签可以带来很多好处"><a href="#正确地使用语义标签可以带来很多好处" class="headerlink" title="正确地使用语义标签可以带来很多好处"></a>正确地使用语义标签可以带来很多好处</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语义类标签对开发者更为友好，使用语义类标签增强了可读性，即便是在没有CSS的时候，开发者也能够清晰地看出网页的结构，</span><br><span class="line">也更为便于团队的开发和维护。</span><br><span class="line"></span><br><span class="line">除了对人类友好之外，语义类标签也十分适宜机器阅读。它的文字表现力丰富，更适合搜索引擎检索（SEO），也可以让搜索引擎</span><br><span class="line">爬虫更好地获取到更多有效信息，有效提升网页的搜索量，并且语义类还可以支持读屏软件，根据文章可以自动生成目录等等。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>与JavaScript这样严格的编程语言相比，HTML中语义标签的使用更接近我们平常说话用的自然语言。我们说话并没有唯一的标准措辞，语义标签的使用也是一样。下面，我挑选了几种我认为比较重要的语义标签使用场景。</p>
-<h3 id="作为自然语言延伸的语义类标签"><a href="#作为自然语言延伸的语义类标签" class="headerlink" title="作为自然语言延伸的语义类标签"></a>作为自然语言延伸的语义类标签</h3><p>其作用是：<strong>作为自然语言和纯文本的补充，用来表达一定的结构或者消除歧义。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">今天我吃了一个&lt;em&gt;苹果&lt;&#x2F;em&gt;。</span><br><span class="line">今天我吃了&lt;em&gt;一个&lt;&#x2F;em&gt;苹果。</span><br></pre></td></tr></table></figure>
-
-<h3 id="作为标题摘要的语义类标签"><a href="#作为标题摘要的语义类标签" class="headerlink" title="作为标题摘要的语义类标签"></a>作为标题摘要的语义类标签</h3><p>语义化的HTML能够支持自动生成目录结构，HTML标准中还专门规定了生成目录结构的算法，即使并不打算深入实践语义，也应该尽量在大的层面上保证这些元素的语义化使用。</p>
-<p><code>h1</code>-<code>h6</code>是最基本的标题，它们表示了文章中不同层级的标题。有些时候，我们会有副标题，为了避免副标题产生额外的一个层级，我们使用 <code>hgroup</code> 标签。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;JavaScript对象&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;h2&gt;我们需要模拟类吗？&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;balah balah&lt;&#x2F;p&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-<p>此段生成以下标题结构：</p>
-<ul>
-<li>JavaScript对象<ul>
-<li>我们需要模拟类吗？</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;hgroup&gt;</span><br><span class="line">&lt;h1&gt;JavaScript对象&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;h2&gt;我们需要模拟类吗？&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;&#x2F;hgroup&gt;</span><br><span class="line">&lt;p&gt;balah balah&lt;&#x2F;p&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-<p>这一段生成以下标题结构：</p>
-<ul>
-<li>JavaScript对象——我们需要模拟类吗？<ul>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<p>从HTML5开始，我们有了<code>section</code>标签，这个标签可不仅仅是一个“有语义的div”，它会改变<code>h1</code>-<code>h6</code>的语义。<code>section</code>的嵌套会使得其中的<code>h1</code>-<code>h6</code>下降一级，因此，在HTML5以后，我们只需要<code>section</code>和<code>h1</code>就足以形成文档的树形结构</p>
-<h3 id="作为整体结构的语义类标签"><a href="#作为整体结构的语义类标签" class="headerlink" title="作为整体结构的语义类标签"></a>作为整体结构的语义类标签</h3><p>随着越来越多的浏览器推出“阅读模式”，以及各种非浏览器终端的出现，语义化的HTML适合机器阅读的特性变得越来越重要。</p>
-<p>应用了语义化结构的页面，可以明确地提示出页面信息的主次关系，它能让浏览器很好地支持“阅读视图功能”，还可以让搜索引擎的命中率提升，同时，它也对视障用户的读屏软件更友好。</p>
-<p>我们正确使用整体结构类的语义标签，可以让页面对机器更友好。</p>
-<ul>
-<li>header，如其名，通常出现在前部，表示导航或者介绍性的内容。</li>
-<li>footer，通常出现在尾部，包含一些作者信息、相关链接、版权信息等。</li>
-</ul>
-<p>header 和 footer 一般都是放在 article 或者 body 的直接子元素，但是标准中并没有明确规定，footer 也可以和 aside，nav，section 相关联（ header 不存在关联问题）。</p>
-<ul>
-<li>aside 表示跟文章主体不那么相关的部分，它可能包含导航、广告等工具性质的内容。</li>
-</ul>
-<p>aside 很容易被理解为侧边栏，实际上二者是包含关系，侧边栏是 aside，aside 不一定是侧边栏。</p>
-<p>aside 和 header 中都可能出现导航（ nav 标签），二者的区别是，header 中的导航多数是到文章自己的目录，而aside中的导航多数是到关联页面或者是整站地图。</p>
-<p>最后 footer 中包含 address，这是个非常容易被误用的标签。address 并非像 date 一样，表示一个给机器阅读的地址，而是表示“文章（作者）的联系方式”，address 明确地只关联到 article 和 body。</p>
-
+        <h1 id="什么是语义化，它有什么好处"><a href="#什么是语义化，它有什么好处" class="headerlink" title="什么是语义化，它有什么好处"></a>什么是语义化，它有什么好处</h1><p>语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达，如 section、nav、p 等语义类标签。</p>
+        
+          <a class="article-more-a" href="/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/#more">more >></a>
+        
       
 
       
@@ -516,44 +394,9 @@
 <li>分别用时间复杂度和空间复杂度两个概念来描述性能问题，二者统称为复杂度。</li>
 <li>复杂度描述的是算法执行时间（或占用空间）与数据规模的增长关系。</li>
 </ol>
-<h1 id="为什么要进行复杂度分析？"><a href="#为什么要进行复杂度分析？" class="headerlink" title="为什么要进行复杂度分析？"></a>为什么要进行复杂度分析？</h1><ol>
-<li>和性能测试相比，复杂度分析有不依赖执行环境、成本低、效率高、易操作、指导性强的特点。</li>
-<li>掌握复杂度分析，将能编写出性能更优的代码，有利于降低系统开发和维护成本。</li>
-</ol>
-<h1 id="如何进行复杂度分析？"><a href="#如何进行复杂度分析？" class="headerlink" title="如何进行复杂度分析？"></a>如何进行复杂度分析？</h1><p>大O表示法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1) 来源：算法的执行时间与每行代码的执行次数成正比，用T(n) &#x3D; O(f(n))表示，其中T(n)表示算法执行总时间，</span><br><span class="line">f(n)表示每行代码执行总次数，而n往往表示数据的规模。</span><br><span class="line"></span><br><span class="line">2) 特点：以时间复杂度为例，由于时间复杂度描述的是算法执行时间与数据规模的增长变化趋势，所以常量阶、低阶以</span><br><span class="line">及系数实际上对这种增长趋势不产决定性影响，所以在做时间复杂度分析时忽略这些项。</span><br></pre></td></tr></table></figure>
-
-<p>复杂度分析法则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1）单段代码看高频：比如循环。</span><br><span class="line"></span><br><span class="line">2）多段代码取最大：比如一段代码中有单循环和多重循环，那么取多重循环的复杂度。</span><br><span class="line"></span><br><span class="line">3）嵌套代码求乘积：比如递归、多重循环等</span><br><span class="line"></span><br><span class="line">4）多个规模求加法：比如方法有两个参数控制两个循环的次数，那么这时就取二者复杂度相加。</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="常用的复杂度级别"><a href="#常用的复杂度级别" class="headerlink" title="常用的复杂度级别"></a>常用的复杂度级别</h1><p>多项式阶：随着数据规模的增长，算法的执行时间和空间占用，按照多项式的比例增长。</p>
-<blockquote>
-<p>O(1)（常数阶）、O(logn)（对数阶）、O(n)（线性阶）、O(nlogn)（线性对数阶）、O(n^2)（平方阶）、O(n^3)（立方阶）</p>
-</blockquote>
-<p>非多项式阶：随着数据规模的增长，算法的执行时间和空间占用暴增，这类算法性能极差。</p>
-<blockquote>
-<p>O(2^n)（指数阶）、O(n!)（阶乘阶）</p>
-</blockquote>
-<h1 id="最好、最坏情况时间复杂度"><a href="#最好、最坏情况时间复杂度" class="headerlink" title="最好、最坏情况时间复杂度"></a>最好、最坏情况时间复杂度</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// n表示数组array的长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> n, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> pos = -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (array[i] == x) &#123;</span><br><span class="line">       pos = i;</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最好情况时间复杂度就是，在最理想的情况下，执行这段代码的时间复杂度，如上代码最好时间复杂度为 O(1)</p>
-<p>最坏情况时间复杂度就是，在最糟糕的情况下，执行这段代码的时间复杂度，如上代码最坏时间复杂度为 O(n)</p>
-<h1 id="平均情况时间复杂度"><a href="#平均情况时间复杂度" class="headerlink" title="平均情况时间复杂度"></a>平均情况时间复杂度</h1><p>继续以上例，要查找的变量 x 在数组中的位置，有 n+1 种情况：在数组的 0～n-1 位置中和不在数组中。我们把每种情况下，查找需要遍历的元素个数累加起来，然后再除以 n+1，就可以得到需要遍历的元素个数的平均值</p>
-<img src="/2020/08/18/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%901.jpg" class="" title="image">
-
-<p>公式简化后的平均时间复杂度为 O(n)</p>
-<p>前面的推导过程中存在的最大问题就是，没有将各种情况发生的概率考虑进去。如果我们把每种情况发生的概率也考虑进去，那平均时间复杂度的计算过程就变成了这样：</p>
-<img src="/2020/08/18/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%902.jpg" class="" title="image">
-
-<p>这个值就是概率论中的加权平均值，也叫作期望值，所以平均时间复杂度的全称应该叫加权平均时间复杂度或者期望时间复杂度。</p>
-<p>简化后加权平均时间复杂度仍是 O(n)</p>
-<h1 id="均摊时间复杂度"><a href="#均摊时间复杂度" class="headerlink" title="均摊时间复杂度"></a>均摊时间复杂度</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array表示一个长度为n的数组</span></span><br><span class="line"><span class="comment">// 代码中的array.length就等于n</span></span><br><span class="line"><span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (count == array.length) &#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i) &#123;</span><br><span class="line">         sum = sum + array[i];</span><br><span class="line">      &#125;</span><br><span class="line">      array[<span class="number">0</span>] = sum;</span><br><span class="line">      count = <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   array[count] = val;</span><br><span class="line">   ++count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>每一次 O(n) 的插入操作，都会跟着 n-1 次 O(1) 的插入操作，所以把耗时多的那次操作均摊到接下来的 n-1 次耗时少的操作上，均摊下来，这一组连续的操作的均摊时间复杂度就是 O(1)。</p>
-<p>均摊时间复杂度就是一种特殊的平均时间复杂度，两个条件满足时使用：1）代码在绝大多数情况下是低级别复杂度，只有极少数情况是高级别复杂度；2）低级别和高级别复杂度出现具有时序规律。均摊结果一般都等于低级别复杂度。</p>
-
+        
+          <a class="article-more-a" href="/2020/08/18/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/#more">more >></a>
+        
       
 
       
