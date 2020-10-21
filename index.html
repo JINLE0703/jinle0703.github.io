@@ -144,6 +144,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-express和koa2中间件原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/">express和koa2中间件原理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-10-21T16:47:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>koa2 的中间件模式与 express 的是不一样的，koa 是洋葱型，express 是直线型，其原因可能是 koa2 支持 async/await 导致的，也致 koa2 的代码会比 express 简洁许多</p>
+        
+          <a class="article-more-a" href="/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,45 +240,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    init() &#123;</span><br><span class="line">        alert(<span class="string">&#x27;init&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    fn1() &#123;</span><br><span class="line">        alert(<span class="string">&#x27;fn1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Creator</span> </span>&#123;</span><br><span class="line">    create(name) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Product(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> createor = <span class="keyword">new</span> Creator();</span><br><span class="line"><span class="keyword">let</span> p = createor.create(<span class="string">&#x27;zhangsan&#x27;</span>);</span><br><span class="line">p.init();</span><br><span class="line">p.fn1();</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>jQuery - $(‘div’)、React.createElement、vue异步组件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">jQuery</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.$ = <span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> jQuery(selector);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>一个类只有一个实例，JS无法完全实现</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleObject</span> </span>&#123;</span><br><span class="line">    login() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;login...&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">SingleObject.getInstance = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> instance</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!instance) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> SingleObject();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> obj1 = SingleObject.getInstance()</span><br><span class="line">obj1.login()</span><br><span class="line"><span class="keyword">let</span> obj2 = SingleObject.getInstance()</span><br><span class="line">obj2.login()</span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj2)</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-1"><a href="#场景-1" class="headerlink" title="场景"></a>场景</h4><p>jQuery 只有一个 $、模拟登陆框</p>
-<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>将旧接口和使用者进行分离</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adaptee</span> </span>&#123;</span><br><span class="line">    specificRequest() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;德国标准插头&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Target</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.adaptee = <span class="keyword">new</span> Adaptee()</span><br><span class="line">    &#125;</span><br><span class="line">    request() &#123;</span><br><span class="line">        <span class="keyword">let</span> info = <span class="built_in">this</span>.specificRequest()</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;info&#125;</span> - 转换器 - 中国标准插头`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">let</span> target = <span class="keyword">new</span> Target()</span><br><span class="line"><span class="keyword">let</span> res = target.request()</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-2"><a href="#场景-2" class="headerlink" title="场景"></a>场景</h4><p>封装旧接口、vue computed</p>
-<h2 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h2><p>为对象添加新功能，不改变其原有结构和功能</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span><br><span class="line">    draw() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;draw&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Decorater</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(circle) &#123;</span><br><span class="line">        <span class="built_in">this</span>.circle = circle</span><br><span class="line">    &#125;</span><br><span class="line">    draw() &#123;</span><br><span class="line">        <span class="built_in">this</span>.circle.draw()</span><br><span class="line">        <span class="built_in">this</span>.setRedBorder(circle)</span><br><span class="line">    &#125;</span><br><span class="line">    setRedBorder(circle) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;setRedBorder&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">let</span> circle = <span class="keyword">new</span> Circle()</span><br><span class="line">circle.draw()   <span class="comment">// draw</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dec = <span class="keyword">new</span> Decorater(circle)</span><br><span class="line">dec.draw()  <span class="comment">// draw setRedBorder</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-3"><a href="#场景-3" class="headerlink" title="场景"></a>场景</h4><p>ES7装饰器、mixin</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readonly</span>(<span class="params">target, name, descriptor</span>)</span>&#123;</span><br><span class="line">  descriptor.writable = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> descriptor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.first = <span class="string">&#x27;A&#x27;</span></span><br><span class="line">        <span class="built_in">this</span>.last = <span class="string">&#x27;B&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @readonly</span><br><span class="line">    name() &#123; <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.first&#125;</span> <span class="subst">$&#123;<span class="built_in">this</span>.last&#125;</span>`</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="built_in">console</span>.log(p.name())</span><br><span class="line">p.name = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 这里会报错，因为 name 是只读属性</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理类和目标类分离，隔离开目标类和使用者</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealImg</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(fileName) &#123;</span><br><span class="line">        <span class="built_in">this</span>.fileName = fileName;</span><br><span class="line">        <span class="built_in">this</span>.loadFromDisk();    <span class="comment">// 初始化</span></span><br><span class="line">    &#125;</span><br><span class="line">    display() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;display...&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    loadFromDisk() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;loading...&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyImg</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(fileName) &#123;</span><br><span class="line">        <span class="built_in">this</span>.realImg = <span class="keyword">new</span> RealImg(fileName);</span><br><span class="line">    &#125;</span><br><span class="line">    display() &#123;</span><br><span class="line">        <span class="built_in">this</span>.realImg.display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> ProxyImg(<span class="string">&#x27;1.png&#x27;</span>);</span><br><span class="line">p.display();</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-4"><a href="#场景-4" class="headerlink" title="场景"></a>场景</h4><p>网页事件代理、jQuery $.proxy、ES6 Proxy</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 明星</span></span><br><span class="line"><span class="keyword">let</span> star = &#123;</span><br><span class="line">    name: <span class="string">&#x27;张XX&#x27;</span>,</span><br><span class="line">    age: <span class="number">25</span>,</span><br><span class="line">    phone: <span class="string">&#x27;13910733521&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 经纪人</span></span><br><span class="line"><span class="keyword">let</span> agent = <span class="keyword">new</span> <span class="built_in">Proxy</span>(star, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (key === <span class="string">&#x27;phone&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 返回经纪人自己的手机号</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;18611112222&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (key === <span class="string">&#x27;price&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 明星不报价，经纪人报价</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">120000</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> target[key]</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">target, key, val</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (key === <span class="string">&#x27;customPrice&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (val &lt; <span class="number">100000</span>) &#123;</span><br><span class="line">                <span class="comment">// 最低 10w</span></span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;价格太低&#x27;</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                target[key] = val</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>主题和观察者分离，不是主动触发而是被动监听</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主题，接收状态变化，触发每个观察者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = <span class="number">0</span></span><br><span class="line">        <span class="built_in">this</span>.observers = []</span><br><span class="line">    &#125;</span><br><span class="line">    getState() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.state</span><br><span class="line">    &#125;</span><br><span class="line">    setState(state) &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = state</span><br><span class="line">        <span class="built_in">this</span>.notifyAllObservers()</span><br><span class="line">    &#125;</span><br><span class="line">    attach(observer) &#123;</span><br><span class="line">        <span class="built_in">this</span>.observers.push(observer)</span><br><span class="line">    &#125;</span><br><span class="line">    notifyAllObservers() &#123;</span><br><span class="line">        <span class="built_in">this</span>.observers.forEach(<span class="function"><span class="params">observer</span> =&gt;</span> &#123;</span><br><span class="line">            observer.update()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察者，等待被触发</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, subject) &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name</span><br><span class="line">        <span class="built_in">this</span>.subject = subject</span><br><span class="line">        <span class="built_in">this</span>.subject.attach(<span class="built_in">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    update() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> update, state: <span class="subst">$&#123;<span class="built_in">this</span>.subject.getState()&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-5"><a href="#场景-5" class="headerlink" title="场景"></a>场景</h4><p>网页事件绑定、Promise、jQuery callbacks、nodejs 自定义事件</p>
-<h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><p>顺序遍历有序集合</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(conatiner) &#123;</span><br><span class="line">        <span class="built_in">this</span>.list = conatiner.list</span><br><span class="line">        <span class="built_in">this</span>.index = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    next() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.hasNext()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.list[<span class="built_in">this</span>.index++]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    hasNext() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.index &gt;= <span class="built_in">this</span>.list.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(list) &#123;</span><br><span class="line">        <span class="built_in">this</span>.list = list</span><br><span class="line">    &#125;</span><br><span class="line">    getIterator() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Iterator(<span class="built_in">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试代码</span></span><br><span class="line"><span class="keyword">let</span> container = <span class="keyword">new</span> Container([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="keyword">let</span> iterator = container.getIterator()</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(iterator.next())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-6"><a href="#场景-6" class="headerlink" title="场景"></a>场景</h4><p>jQuery each、ES6 Iterator(for…of…)</p>
-<h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(color) &#123;</span><br><span class="line">        <span class="built_in">this</span>.color = color</span><br><span class="line">    &#125;</span><br><span class="line">    handle(context) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`turn to <span class="subst">$&#123;<span class="built_in">this</span>.color&#125;</span> light`</span>)</span><br><span class="line">        context.setState(<span class="built_in">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    setState(state) &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = state</span><br><span class="line">    &#125;</span><br><span class="line">    getState() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试代码</span></span><br><span class="line"><span class="keyword">let</span> context = <span class="keyword">new</span> Context()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> green = <span class="keyword">new</span> State(<span class="string">&#x27;greed&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> yellow = <span class="keyword">new</span> State(<span class="string">&#x27;yellow&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> red = <span class="keyword">new</span> State(<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绿灯亮了</span></span><br><span class="line">green.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br><span class="line"><span class="comment">// 黄灯亮了</span></span><br><span class="line">yellow.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br><span class="line"><span class="comment">// 红灯亮了</span></span><br><span class="line">red.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br></pre></td></tr></table></figure>
-
-<h4 id="场景-7"><a href="#场景-7" class="headerlink" title="场景"></a>场景</h4><p>有限状态机、写一个简单的 Promise</p>
-
+        <p>Javascript 比较常用的设计模式：单例模式、观察者模式、发布-订阅模式</p>
+        
+          <a class="article-more-a" href="/2020/10/04/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+        
       
 
       
@@ -860,69 +901,6 @@
 
 
   
-    <article id="post-前端知识体系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">前端知识体系</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-08-18T15:01:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p><a target="_blank" rel="noopener" href="https://jinle0703.github.io/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/">浅谈HTML语义化</a></p>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1029,6 +1007,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
             
             <div class="clearfix"></div>

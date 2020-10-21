@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>浅谈HTML语义化 | 米奇妙妙屋</title>
+  <title>express和koa2中间件原理 | 米奇妙妙屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是语义化，它有什么好处？ 语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达，如 section、nav、p 等语义类标签。">
+  <meta name="description" content="koa2 的中间件模式与 express 的是不一样的，koa 是洋葱型，express 是直线型，其原因可能是 koa2 支持 async&#x2F;await 导致的，也致 koa2 的代码会比 express 简洁许多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈HTML语义化">
-<meta property="og:url" content="http://yoursite.com/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/index.html">
+<meta property="og:title" content="express和koa2中间件原理">
+<meta property="og:url" content="http://yoursite.com/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="米奇妙妙屋">
-<meta property="og:description" content="什么是语义化，它有什么好处？ 语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达，如 section、nav、p 等语义类标签。">
+<meta property="og:description" content="koa2 的中间件模式与 express 的是不一样的，koa 是洋葱型，express 是直线型，其原因可能是 koa2 支持 async&#x2F;await 导致的，也致 koa2 的代码会比 express 简洁许多">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-18T15:31:29.000Z">
-<meta property="article:modified_time" content="2020-08-19T10:24:29.782Z">
+<meta property="article:published_time" content="2020-10-21T16:47:51.000Z">
+<meta property="article:modified_time" content="2020-10-21T16:52:46.397Z">
 <meta property="article:author" content="Jinle">
-<meta property="article:tag" content="html">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="米奇妙妙屋" type="application/atom+xml">
@@ -145,73 +145,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-浅谈HTML语义化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-express和koa2中间件原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈HTML语义化
+      express和koa2中间件原理
     </h1>
   
 
         
-        <a href="/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-08-18T15:31:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
+        <a href="/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-10-21T16:47:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>什么是语义化，它有什么好处？</p>
-<p>语义是我们说话表达的意思，多数的语义实际上都是由文字来承载的。语义类标签则是纯文字的补充，比如标题、自然段、章节、列表，这些内容都是纯文字无法表达的，我们需要依靠语义标签代为表达，如 section、nav、p 等语义类标签。</p>
+        <p>koa2 的中间件模式与 express 的是不一样的，koa 是洋葱型，express 是直线型，其原因可能是 koa2 支持 async/await 导致的，也致 koa2 的代码会比 express 简洁许多</p>
 <a id="more"></a>
 
-<h3 id="正确地使用语义标签可以带来很多好处"><a href="#正确地使用语义标签可以带来很多好处" class="headerlink" title="正确地使用语义标签可以带来很多好处"></a>正确地使用语义标签可以带来很多好处</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">语义类标签对开发者更为友好，使用语义类标签增强了可读性，即便是在没有CSS的时候，开发者也能够清晰地看出网页的结构，</span><br><span class="line">也更为便于团队的开发和维护。</span><br><span class="line"></span><br><span class="line">除了对人类友好之外，语义类标签也十分适宜机器阅读。它的文字表现力丰富，更适合搜索引擎检索（SEO），也可以让搜索引擎</span><br><span class="line">爬虫更好地获取到更多有效信息，有效提升网页的搜索量，并且语义类还可以支持读屏软件，根据文章可以自动生成目录等等。</span><br></pre></td></tr></table></figure>
+<h2 id="express中间件原理"><a href="#express中间件原理" class="headerlink" title="express中间件原理"></a>express中间件原理</h2><p>app.use 用来注册中间件，先收集起来</p>
+<p>遇到 http 请求，根据 path 和 method 判断触发条件</p>
+<p>实现next 机制，即上一个通过 next 触发下一个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> slice = <span class="built_in">Array</span>.prototype.slice;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeExpress</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="comment">// 存放中间件的列表</span></span><br><span class="line">        <span class="built_in">this</span>.routes = &#123;</span><br><span class="line">            all: [],</span><br><span class="line">            get: [],</span><br><span class="line">            post: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册中间件通用方法</span></span><br><span class="line">    register(path) &#123;</span><br><span class="line">        <span class="keyword">const</span> info = &#123;&#125;;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> path === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">            info.path = path;</span><br><span class="line">            info.stack = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            info.path = <span class="string">&#x27;/&#x27;</span>;</span><br><span class="line">            info.stack = slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> info;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    use() &#123;</span><br><span class="line">        <span class="keyword">const</span> info = <span class="built_in">this</span>.register(...arguments);</span><br><span class="line">        <span class="built_in">this</span>.routes.all.push(info);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get() &#123;</span><br><span class="line">        <span class="keyword">const</span> info = <span class="built_in">this</span>.register(...arguments);</span><br><span class="line">        <span class="built_in">this</span>.routes.get.push(info);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post() &#123;</span><br><span class="line">        <span class="keyword">const</span> info = <span class="built_in">this</span>.register(...arguments);</span><br><span class="line">        <span class="built_in">this</span>.routes.post.push(info);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    match(method, url) &#123;</span><br><span class="line">        <span class="keyword">let</span> stack = [];</span><br><span class="line">        <span class="keyword">if</span> (url === <span class="string">&#x27;/favicon.ico&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> stack;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取 routes</span></span><br><span class="line">        <span class="keyword">let</span> curRoutes = [];</span><br><span class="line">        curRoutes = curRoutes.concat(<span class="built_in">this</span>.routes.all);</span><br><span class="line">        curRoutes = curRoutes.concat(<span class="built_in">this</span>.routes[method]);</span><br><span class="line"></span><br><span class="line">        curRoutes.forEach(<span class="function"><span class="params">routeInfo</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (url.indexOf(routeInfo.path) === <span class="number">0</span>) &#123;</span><br><span class="line">                stack = stack.concat(routeInfo.stack);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 核心 next 机制</span></span><br><span class="line">    handle(req, res, stack) &#123;</span><br><span class="line">        <span class="keyword">const</span> next = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 拿第一个中间件</span></span><br><span class="line">            <span class="keyword">const</span> middleware = stack.shift();</span><br><span class="line">            <span class="keyword">if</span> (middleware) &#123;</span><br><span class="line">                <span class="comment">// 执行中间件函数</span></span><br><span class="line">                middleware(req, res, next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    callback() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">            res.json = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">                res.setHeader(<span class="string">&#x27;Content-type&#x27;</span>, <span class="string">&#x27;application/json&#x27;</span>);</span><br><span class="line">                res.end(</span><br><span class="line">                    <span class="built_in">JSON</span>.stringify(data)</span><br><span class="line">                );</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">const</span> url = req.url;</span><br><span class="line">            <span class="keyword">const</span> method = req.method.toLowerCase();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">const</span> resultList = <span class="built_in">this</span>.match(method, url);</span><br><span class="line">            <span class="built_in">this</span>.handle(req, res, resultList);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    listen(...args) &#123;</span><br><span class="line">        <span class="keyword">const</span> server = http.createServer(<span class="built_in">this</span>.callback());</span><br><span class="line">        server.listen(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 工厂函数</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LikeExpress()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<hr>
-<p>与JavaScript这样严格的编程语言相比，HTML中语义标签的使用更接近我们平常说话用的自然语言。我们说话并没有唯一的标准措辞，语义标签的使用也是一样。下面，我挑选了几种我认为比较重要的语义标签使用场景。</p>
-<h3 id="作为自然语言延伸的语义类标签"><a href="#作为自然语言延伸的语义类标签" class="headerlink" title="作为自然语言延伸的语义类标签"></a>作为自然语言延伸的语义类标签</h3><p>其作用是：<strong>作为自然语言和纯文本的补充，用来表达一定的结构或者消除歧义。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">今天我吃了一个&lt;em&gt;苹果&lt;&#x2F;em&gt;。</span><br><span class="line">今天我吃了&lt;em&gt;一个&lt;&#x2F;em&gt;苹果。</span><br></pre></td></tr></table></figure>
+<h2 id="koa2中间件原理"><a href="#koa2中间件原理" class="headerlink" title="koa2中间件原理"></a>koa2中间件原理</h2><p>洋葱圈模型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合中间件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">middlewareList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> fn = middlewareList[i];</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(</span><br><span class="line">                    fn(ctx, dispatch.bind(<span class="literal">null</span>, i + <span class="number">1</span>))</span><br><span class="line">                );</span><br><span class="line">            &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dispatch(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LikeKoa2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.middlewareList = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    use(fn) &#123;</span><br><span class="line">        <span class="built_in">this</span>.middlewareList.push(fn);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;    <span class="comment">// 链式调用</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    createContext(req, res) &#123;</span><br><span class="line">        <span class="keyword">const</span> ctx = &#123;</span><br><span class="line">            req,</span><br><span class="line">            res</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ctx;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleRequest(ctx, fn) &#123;</span><br><span class="line">        <span class="keyword">return</span> fn(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    callback() &#123;</span><br><span class="line">        <span class="keyword">const</span> fn = compose(<span class="built_in">this</span>.middlewareList);</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> ctx = <span class="built_in">this</span>.createContext(req, res);</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.handleRequest(ctx, fn);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    listen(...args) &#123;</span><br><span class="line">        <span class="keyword">const</span> server = http.createServer(<span class="built_in">this</span>.callback());</span><br><span class="line">        server.listen(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = LikeKoa2</span><br></pre></td></tr></table></figure>
 
-<h3 id="作为标题摘要的语义类标签"><a href="#作为标题摘要的语义类标签" class="headerlink" title="作为标题摘要的语义类标签"></a>作为标题摘要的语义类标签</h3><p>语义化的HTML能够支持自动生成目录结构，HTML标准中还专门规定了生成目录结构的算法，即使并不打算深入实践语义，也应该尽量在大的层面上保证这些元素的语义化使用。</p>
-<p><code>h1</code>-<code>h6</code>是最基本的标题，它们表示了文章中不同层级的标题。有些时候，我们会有副标题，为了避免副标题产生额外的一个层级，我们使用 <code>hgroup</code> 标签。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;JavaScript对象&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;h2&gt;我们需要模拟类吗？&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;balah balah&lt;&#x2F;p&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-<p>此段生成以下标题结构：</p>
-<ul>
-<li>JavaScript对象<ul>
-<li>我们需要模拟类吗？</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;hgroup&gt;</span><br><span class="line">&lt;h1&gt;JavaScript对象&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;h2&gt;我们需要模拟类吗？&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;&#x2F;hgroup&gt;</span><br><span class="line">&lt;p&gt;balah balah&lt;&#x2F;p&gt;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-<p>这一段生成以下标题结构：</p>
-<ul>
-<li>JavaScript对象——我们需要模拟类吗？<ul>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<p>从HTML5开始，我们有了<code>section</code>标签，这个标签可不仅仅是一个“有语义的div”，它会改变<code>h1</code>-<code>h6</code>的语义。<code>section</code>的嵌套会使得其中的<code>h1</code>-<code>h6</code>下降一级，因此，在HTML5以后，我们只需要<code>section</code>和<code>h1</code>就足以形成文档的树形结构</p>
-<h3 id="作为整体结构的语义类标签"><a href="#作为整体结构的语义类标签" class="headerlink" title="作为整体结构的语义类标签"></a>作为整体结构的语义类标签</h3><p>随着越来越多的浏览器推出“阅读模式”，以及各种非浏览器终端的出现，语义化的HTML适合机器阅读的特性变得越来越重要。</p>
-<p>应用了语义化结构的页面，可以明确地提示出页面信息的主次关系，它能让浏览器很好地支持“阅读视图功能”，还可以让搜索引擎的命中率提升，同时，它也对视障用户的读屏软件更友好。</p>
-<p>我们正确使用整体结构类的语义标签，可以让页面对机器更友好。</p>
-<ul>
-<li>header，如其名，通常出现在前部，表示导航或者介绍性的内容。</li>
-<li>footer，通常出现在尾部，包含一些作者信息、相关链接、版权信息等。</li>
-</ul>
-<p>header 和 footer 一般都是放在 article 或者 body 的直接子元素，但是标准中并没有明确规定，footer 也可以和 aside，nav，section 相关联（ header 不存在关联问题）。</p>
-<ul>
-<li>aside 表示跟文章主体不那么相关的部分，它可能包含导航、广告等工具性质的内容。</li>
-</ul>
-<p>aside 很容易被理解为侧边栏，实际上二者是包含关系，侧边栏是 aside，aside 不一定是侧边栏。</p>
-<p>aside 和 header 中都可能出现导航（ nav 标签），二者的区别是，header 中的导航多数是到文章自己的目录，而aside中的导航多数是到关联页面或者是整站地图。</p>
-<p>最后 footer 中包含 address，这是个非常容易被误用的标签。address 并非像 date 一样，表示一个给机器阅读的地址，而是表示“文章（作者）的联系方式”，address 明确地只关联到 article 和 body。</p>
 
       
 
@@ -225,7 +189,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		
 		</ul>
@@ -281,7 +245,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/18/%E6%B5%85%E8%B0%88HTML%E8%AF%AD%E4%B9%89%E5%8C%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/22/express%E5%92%8Ckoa2%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +259,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/19/%E8%81%8A%E8%81%8Ajavascript%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          聊聊JavaScript类型
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/18/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端知识体系</div>
+    <a href="/2020/10/04/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
